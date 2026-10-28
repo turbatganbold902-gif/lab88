@@ -3,36 +3,32 @@
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Миний зургийн цомог | Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Миний зургийн цомог — Bootstrap</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Миний зургийн цомог</a>
-      <button id="themeBtn" class="btn btn-outline-light">
+      <a class="navbar-brand" href="#">Миний цомог</a>
+      <button class="btn btn-outline-light" id="themeBtn">
         Dark mode
       </button>
     </div>
   </nav>
 
-  <main class="container py-5">
-    <h1 class="text-center fw-bold mb-3">Миний зургийн цомог</h1>
-    <p class="text-center text-secondary mb-5">
-      Миний дуртай зураг, дурсамжууд
-    </p>
+  <main class="container py-4">
+    <h1 class="text-center mb-4">Миний зургийн цомог</h1>
 
-    <div class="row g-4">
+    <div class="row g-4" id="gallery">
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="../img/photo1.jpg" class="card-img-top gallery-img"
-               alt="Зураг 1" onclick="openLightbox(this.src)">
+          <img src="../img/photo1.jpg"
+               class="card-img-top gallery-img"
+               alt="Миний зураг">
           <div class="card-body">
             <h5 class="card-title">Зураг 1</h5>
             <p class="card-text">Миний дуртай зураг.</p>
@@ -46,11 +42,12 @@
 
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="../img/photo2.jpg" class="card-img-top gallery-img"
-               alt="Зураг 2" onclick="openLightbox(this.src)">
+          <img src="../img/photo2.jpg"
+               class="card-img-top gallery-img"
+               alt="Байгалийн зураг">
           <div class="card-body">
             <h5 class="card-title">Зураг 2</h5>
-            <p class="card-text">Миний дурсамж.</p>
+            <p class="card-text">Дурсамжтай мөч.</p>
             <button class="btn btn-primary"
                     onclick="openLightbox('../img/photo2.jpg')">
               Томруулж харах
@@ -61,8 +58,9 @@
 
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="../img/photo3.jpg" class="card-img-top gallery-img"
-               alt="Зураг 3" onclick="openLightbox(this.src)">
+          <img src="../img/photo3.jpg"
+               class="card-img-top gallery-img"
+               alt="Аяллын зураг">
           <div class="card-body">
             <h5 class="card-title">Зураг 3</h5>
             <p class="card-text">Шинэ дурсамж.</p>
@@ -75,24 +73,32 @@
       </div>
     </div>
 
-    <section class="mt-5 mx-auto" style="max-width: 600px">
-      <h2 class="mb-3">Холбоо барих</h2>
-      <form id="contactForm" novalidate>
-        <label for="email" class="form-label">Имэйл хаяг</label>
-        <input id="email" type="email" required
-               class="form-control mb-3"
-               placeholder="name@example.com">
-        <div id="formMessage" class="mb-3"></div>
-        <button type="submit" class="btn btn-success">Илгээх</button>
+    <section class="mt-5">
+      <h2>Холбоо барих</h2>
+      <form id="contactForm" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="email" class="form-label">Имэйл</label>
+          <input type="email" id="email" class="form-control" required>
+          <div class="invalid-feedback">
+            Зөв имэйл хаяг оруулна уу.
+          </div>
+        </div>
+        <button class="btn btn-success" type="submit">
+          Илгээх
+        </button>
       </form>
     </section>
   </main>
 
   <div id="lightbox" class="lightbox"
+       role="dialog" aria-modal="true" aria-label="Томруулсан зураг"
        onclick="closeLightbox()">
     <button class="lightbox-close" aria-label="Хаах"
             onclick="closeLightbox()">×</button>
     <img id="lightboxImage" src="" alt="Томруулсан зураг">
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
